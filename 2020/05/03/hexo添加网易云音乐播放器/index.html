@@ -1,0 +1,59 @@
+<!DOCTYPE html><html class="han-init" lang="zh-Hant"><head><meta name="generator" content="Hexo 3.9.0"><meta name="author" content="Frevile"><meta name="description" itemprop="description" content="给博客页面添加音乐的方法，简单可行，并通过网易云音乐的电台模式实现版权歌曲以及本地音乐的处理。"><link rel="alternative" href="/atom.xml" title="Aetherial★Clocktower" type="application/atom+xml"><link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>hexo添加网易云音乐播放器</title><link rel="stylesheet" type="text/css" href="/font/fantasque_sans_mono/stylesheet.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/webicons/2.0.0/webicons.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Han/3.3.0/han.min.css"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/gruvbox-dark.min.css"></head><body><header><a href="/"><img class="logo" src="/images/avatar.gif" alt="Aetherial★Clocktower" title="Aetherial★Clocktower"></a><h1><a href="/" alt="Aetherial★Clocktower" title="Aetherial★Clocktower">Aetherial★Clocktower</a></h1><p>随意创作</p><nav><ul><li><a href="/" alt="首页" title="首页">首页</a></li><li><a href="/short" alt="心情" title="心情">心情</a></li><li><a href="/归档" alt="归档" title="归档">归档</a></li><li><a href="/links" alt="链接" title="链接">链接</a></li><li><a href="/about" alt="关于" title="关于">关于</a></li></ul><div class="ac-icon"><a target="_blank" href="/atom.xml">&#xf09c;</a><a target="_blank" href="https://t.me/Frevile" style="position: relative; right: -1px;">&#xeaf9;</a><a target="_blank" href="https://twitter.com/victor_frevile" style="position: relative; right: -4px;">&#xea3f;           </a></div><div class="music"><div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2063076946&auto=0&height=66"></iframe></div></div></nav><div class="space"></div></header><main><article class="full"><h1>hexo添加网易云音乐播放器</h1><span class="post-meta">写于<time> 2020 年 05 月 03 日 15 时 39 分</time><br>更新于<time> 2020 年 05 月 03 日 18 时 45 分</time></span><blockquote>
+<p>给博客页面添加音乐的方法，简单可行，并通过网易云音乐的电台模式实现版权歌曲以及本地音乐的处理。<a id="more"></a></p>
+</blockquote>
+<p>给hexo添加音乐并不只有一这种方法，比如常见的next主题配合Aplayer似乎效果很好。采用网易云音乐则是看中了它比较方便，效果立竿见影。方法简述如下：</p>
+<p>1.首先打开网页版网易云音乐，客户端是无法操作的。找到目标音乐or歌单后点击“生成外链播放器”，单个音乐生成后就是这个音乐的外链，歌单生成此歌单的外链，如下图，当然周杰伦肯定是不行的，因为没有版权，不仅无法生成外链，连放都放不成，这里只是说明操作方法。</p>
+<img src="/2020/05/03/hexo添加网易云音乐播放器/1.png" title="a"><img src="/2020/05/03/hexo添加网易云音乐播放器/2.png" title="b">
+
+<p>2.这里我们换一个音乐，外链生成成功后进入这个界面（车万没版权hhh）</p>
+<img src="/2020/05/03/hexo添加网易云音乐播放器/3.png" title="c">
+<p>这里选择iframe插件模式，尺寸有两种，这里选大的。自动播放选不选无所谓，它是由链接代码中auto=1这一项控制的，事后自己可以改成auto=0则为不自动播放。代码里的长宽高也是可以自己调整的，这里就默认不动。</p>
+<p>3.复制生成的HTML代码，添加到主题中你想要的位置，这个位置根据主题模板和你选择的不同而定。比如我在这个主题中想将它置于页面的最左下角，则在 source &gt;themes &gt;我的主题 &gt;layout &gt;_header.pug 中添加一个div标签，并将其中iframe部分替换为你的歌曲生成的代码。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">div.music</span><br><span class="line">  &lt;div id=&quot;music163player&quot;&gt;</span><br><span class="line">    &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=3&amp;id=2063076946&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4.不出意外这时候已经可以在目标区域看到音乐播放器了，调整一下大小直接完工了。我这里为了把音乐播放器固定在博客左下角，还需在 source &gt;themes &gt;source &gt;styles &gt;header.styl 里给其定位：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.music</span><br><span class="line">  position fixed</span><br><span class="line">  bottom 0px</span><br><span class="line">  left 0px</span><br></pre></td></tr></table></figure>
+
+<p>这里position fixed表示固定位置，用bottom和left距离设成0像素表示让其紧贴左下角。我发现紧贴下端的话会导致播放器按钮和网页左下角的指向链接框重合，所以将播放器提高10个像素位置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.music</span><br><span class="line">  position fixed</span><br><span class="line">  bottom 10px</span><br><span class="line">  left 0px</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/03/hexo添加网易云音乐播放器/4.png" title="d">
+<p>不再重叠了~</p>
+<hr>
+<p>现在来说说这种方法最大的两个问题。<br>第一，网易云音乐上大量歌曲因为版权问题是无法生成外链；<br>第二，如果我想添加一个网易云音乐上没有的音乐呢？</p>
+<p>我发现利用网易云音乐的个人电台可以一定程度上解决。比如本博客添加的音乐来自韩国游戏Soulworker，这个音乐不仅网易云没有，互联网都找不到。我在网易云音乐里自己创建一个包含这个音乐的个人电台，若电台上传成功，则可以通过个人电台来生成外链，效果和正常网易云一模一样，等于是把网易云当成了一个私人云端（跟用GitHub的库建hexo差不多的道理）。</p>
+<p>所以用这种方法能不能处理周杰伦这种版权重灾区？我觉得是不行的，因为看样子网易云的私人电台并不是完全不受监管，可以调查一下其他网易云用户创建的“私人周杰伦”，收藏人数很多，却基本已经没音乐了，说明这些电台曾经运转过，现在都挂掉了。当然如果你上传成私密电台，或者伪装手段做得足够好，或许也有可能达到目的，网易云也不会因为你传了版权歌就把你号封了，只是电台的歌曲会挂掉。</p>
+<p>总的来说，因为每个人听的音乐的情况不一样，使用网易云音乐播放器的效果也有区别。像如果一个车万人他即使有N多车万音乐也几乎遇不到这种问题，但是如果我就是非周杰伦不听，想添加一堆周杰伦上去，可能就比较困难了。</p>
+<hr><section class="comment"><div id="disqus_thread"></div></section><script>var DISQUS_PAGE_URL = "https://frevile.github.io/2020/05/03/hexo添加网易云音乐播放器/";</script><script>var DISQUS_IDENTIFIER = "2020/05/03/hexo添加网易云音乐播放器/";</script><script>var DISQUS_SHORT_NAME = "YOUR_DUOSHUO_ID"</script><script>var disqus_config = function() {
+  this.page.url = DISQUS_PAGE_URL;
+  this.page.identifier = DISQUS_IDENTIFIER;
+};
+
+(function() {
+  var d = document, s = d.createElement("script");
+  s.src = "https://" + DISQUS_SHORT_NAME + ".disqus.com/embed.js";
+  s.setAttribute("data-timestamp", +new Date());
+  (d.head || d.body).appendChild(s);
+})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer><section class="copyright">&copy; 2016 - 2021<a href="/">Frevile</a></section><section class="intro">由<a href="https://hexo.io/">Hexo</a>驱动&middot;挂载<a href="https://github.com/xadillax/hexo-xnew">X'new</a>主题</section></footer></article></main><script src="//cdn.bootcss.com/Han/3.3.0/han.min.js"></script><script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script><script src="/scripts/highlight.pack.js"></script><script>$(function() {
+    $("header").backstretch("/images/header.jpeg");
+
+    $("figure.highlight").each(function(i, block) {
+        $(block).removeClass("highlight");
+        $("<pre><code class='__tobehl " + ($(block).attr("class") === "plain" ? "" : ("lang-" + $(block).attr("class"))) + "'></code></pre>").insertAfter($(block));
+        $(block).next().find("code").text((block.innerText || block.textContent));
+        $(block).remove();
+    });
+    $(".__tobehl").each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+    $("article.full img").each(function() {
+        $(this).parent().css("text-align", "center");
+    });
+
+    if($(".article-toc").children().length < 2) {
+        $(".article-toc").css("display", "none");
+    }
+});</script></body></html>
