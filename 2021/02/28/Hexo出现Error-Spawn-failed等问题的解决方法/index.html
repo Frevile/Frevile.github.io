@@ -1,0 +1,40 @@
+<!DOCTYPE html><html class="han-init" lang="zh-Hant"><head><meta name="generator" content="Hexo 3.9.0"><meta name="author" content="Frevile"><meta name="description" itemprop="description" content="Error: Spawn failed以及fatal: unable to access等"><link rel="alternative" href="/atom.xml" title="Aetherial★Clocktower" type="application/atom+xml"><link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hexo出现Error: Spawn failed等问题的解决方法</title><link rel="stylesheet" type="text/css" href="/font/fantasque_sans_mono/stylesheet.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/webicons/2.0.0/webicons.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Han/3.3.0/han.min.css"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/gruvbox-dark.min.css"></head><body><header><a href="/"><img class="logo" src="/images/avatar.gif" alt="Aetherial★Clocktower" title="Aetherial★Clocktower"></a><h1><a href="/" alt="Aetherial★Clocktower" title="Aetherial★Clocktower">Aetherial★Clocktower</a></h1><p>随意创作</p><nav><ul><li><a href="/" alt="首页" title="首页">首页</a></li><li><a href="/short" alt="心情" title="心情">心情</a></li><li><a href="/归档" alt="归档" title="归档">归档</a></li><li><a href="/links" alt="链接" title="链接">链接</a></li><li><a href="/about" alt="关于" title="关于">关于</a></li></ul><div class="ac-icon"><a target="_blank" href="/atom.xml">&#xf09c;</a><a target="_blank" href="https://t.me/Frevile" style="position: relative; right: -1px;">&#xeaf9;</a><a target="_blank" href="https://twitter.com/victor_frevile" style="position: relative; right: -4px;">&#xea3f;           </a></div><div class="music"><div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2063076946&auto=0&height=66"></iframe></div></div></nav><div class="space"></div></header><main><article class="full"><h1>Hexo出现Error: Spawn failed等问题的解决方法</h1><span class="post-meta">写于<time> 2021 年 02 月 28 日 21 时 43 分</time><br>更新于<time> 2021 年 02 月 28 日 22 时 15 分</time></span><blockquote>
+<p>Error: Spawn failed以及fatal: unable to access等<a id="more"></a></p>
+</blockquote>
+<p>今天尝试hexo d失败，报错为fatal: unable to access ‘https://<span><span>github.com/…，如下图所示。</span></span></p>
+<img src="/2021/02/28/Hexo出现Error-Spawn-failed等问题的解决方法/a.png" title="a">
+<p>而且还要输密码，似乎SSH失效了。不过我上次也遇到输密码的情况，但是输入密码之后deploy成功，就一直没管这个事，结果今天直接不能deploy了。</p>
+<p>一开始看到Fatal to connect to github.com port 443: Time out以为是没用魔法或者网络波动导致的，于是更换网络环境之后，此行报错消失，但仍旧无法deploy成功。才发现下面还有一个奇怪的错误，显示Error: Spawn failed，看不懂这个到底是什么问题，上网搜索后</p>
+<hr><section class="comment"><div id="disqus_thread"></div></section><script>var DISQUS_PAGE_URL = "https://frevile.github.io/2021/02/28/Hexo出现Error-Spawn-failed等问题的解决方法/";</script><script>var DISQUS_IDENTIFIER = "2021/02/28/Hexo出现Error-Spawn-failed等问题的解决方法/";</script><script>var DISQUS_SHORT_NAME = "YOUR_DUOSHUO_ID"</script><script>var disqus_config = function() {
+  this.page.url = DISQUS_PAGE_URL;
+  this.page.identifier = DISQUS_IDENTIFIER;
+};
+
+(function() {
+  var d = document, s = d.createElement("script");
+  s.src = "https://" + DISQUS_SHORT_NAME + ".disqus.com/embed.js";
+  s.setAttribute("data-timestamp", +new Date());
+  (d.head || d.body).appendChild(s);
+})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer><section class="copyright">&copy; 2016 - 2021<a href="/">Frevile</a></section><section class="intro">由<a href="https://hexo.io/">Hexo</a>驱动&middot;挂载<a href="https://github.com/xadillax/hexo-xnew">X'new</a>主题</section></footer></article></main><script src="//cdn.bootcss.com/Han/3.3.0/han.min.js"></script><script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script><script src="/scripts/highlight.pack.js"></script><script>$(function() {
+    $("header").backstretch("/images/header.jpeg");
+
+    $("figure.highlight").each(function(i, block) {
+        $(block).removeClass("highlight");
+        $("<pre><code class='__tobehl " + ($(block).attr("class") === "plain" ? "" : ("lang-" + $(block).attr("class"))) + "'></code></pre>").insertAfter($(block));
+        $(block).next().find("code").text((block.innerText || block.textContent));
+        $(block).remove();
+    });
+    $(".__tobehl").each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+    $("article.full img").each(function() {
+        $(this).parent().css("text-align", "center");
+    });
+
+    if($(".article-toc").children().length < 2) {
+        $(".article-toc").css("display", "none");
+    }
+});</script></body></html>
