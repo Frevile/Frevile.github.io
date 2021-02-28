@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frevile.github.io/"/>
-  <updated>2021-02-28T15:16:32.847Z</updated>
+  <updated>2021-02-28T15:21:44.974Z</updated>
   <id>https://frevile.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://frevile.github.io/2021/02/28/Hexo%E5%87%BA%E7%8E%B0Error-Spawn-failed%E7%AD%89%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <id>https://frevile.github.io/2021/02/28/Hexo%E5%87%BA%E7%8E%B0Error-Spawn-failed%E7%AD%89%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</id>
     <published>2021-02-28T13:43:27.000Z</published>
-    <updated>2021-02-28T15:16:32.847Z</updated>
+    <updated>2021-02-28T15:21:44.974Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>Error: Spawn failed以及fatal: unable to access等<a id="more"></a></p></blockquote><p>今天尝试hexo d失败，报错为fatal: unable to access ‘https://<span><span>github.com/…，如下图所示。</span></span></p><img src="/2021/02/28/Hexo出现Error-Spawn-failed等问题的解决方法/a.png" title="a"><p>一开始看到Fatal to connect to github.com port 443: Time out以为是没用魔法或者网络波动导致的，于是更换网络环境之后，此行报错消失，但仍旧无法deploy成功，并且还要输密码，似乎SSH失效了。并且发现下面还有一个奇怪的错误，显示Error: Spawn failed，看不懂这个到底是什么问题。不过我上次也遇到输密码的情况，但是输入密码之后deploy成功，就一直没管这个事，结果今天直接不能deploy了。</p><p>先是上网搜了一下，<a href="https://blog.csdn.net/HTL2018/article/details/106876940" target="_blank" rel="noopener">https://blog.csdn.net/HTL2018/article/details/106876940</a> 中的方法即：</p><ol><li>删除<code>.deploy_git</code>文件夹;</li><li>输入<code>git config --global core.autocrlf false</code></li><li>然后，依次执行：<br><code>hexo cleanhexo ghexo d</code></li></ol><p>该方法的确能够让hexo d成功，虽然最后还是要输一遍密码，但是经再次尝试，hexo d中故意输错一次github密码，出现fatal: Authentication failed for…的报错，同时含有Error: Spawn failed，再次尝试hexo d则回到图中的状态。可见该方法并不能够彻底解决该问题。于是怀疑是SSH哪里出了问题。尝试重新部署SSH。</p><p>该条目测试变化</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>Error: Spawn failed以及fatal: unable to access等<a id="more"></a></p></blockquote><p>今天尝试hexo d失败，报错为fatal: unable to access ‘https://<span><span>github.com/…，如下图所示。</span></span></p><img src="/2021/02/28/Hexo出现Error-Spawn-failed等问题的解决方法/a.png" title="a"><p>一开始看到Fatal to connect to github.com port 443: Time out以为是没用魔法或者网络波动导致的，于是更换网络环境之后，此行报错消失，但仍旧无法deploy成功，并且还要输密码，似乎SSH失效了。并且发现下面还有一个奇怪的错误，显示Error: Spawn failed，看不懂这个到底是什么问题。不过我上次也遇到输密码的情况，但是输入密码之后deploy成功，就一直没管这个事，结果今天直接不能deploy了。</p><p>先是上网搜了一下，<a href="https://blog.csdn.net/HTL2018/article/details/106876940" target="_blank" rel="noopener">https://blog.csdn.net/HTL2018/article/details/106876940</a> 中的方法即：</p><ol><li>删除<code>.deploy_git</code>文件夹;</li><li>输入<code>git config --global core.autocrlf false</code></li><li>然后，依次执行：<br><code>hexo cleanhexo ghexo d</code></li></ol><p>该方法的确能够让hexo d成功，虽然最后还是要输一遍密码，但是经再次尝试，hexo d中故意输错一次github密码，出现fatal: Authentication failed for…的报错，同时含有Error: Spawn failed，再次尝试hexo d则回到图中的状态。可见该方法并不能够彻底解决该问题。于是怀疑是SSH哪里出了问题。尝试重新部署SSH。</p><p>该条目测试变化 gaitiaomuce</p>]]></content>
     
     <summary type="html">
     
