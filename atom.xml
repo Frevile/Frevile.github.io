@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frevile.github.io/"/>
-  <updated>2021-02-28T17:10:02.662Z</updated>
+  <updated>2021-04-09T14:41:11.647Z</updated>
   <id>https://frevile.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单的手动批量下载网页图片的方法</title>
+    <link href="https://frevile.github.io/2021/04/09/%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%8B%E5%8A%A8%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://frevile.github.io/2021/04/09/%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%8B%E5%8A%A8%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2021-04-09T13:13:40.000Z</published>
+    <updated>2021-04-09T14:41:11.647Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>利用浏览器缓存cache和批处理ren命令等方法实现手动批量下载难以下载的网页图片<a id="more"></a></p></blockquote><p>相信每一个喜欢艺术设计的人都拥有一个属于自己的参考素材图片库，见过的那些大佬们的素材库都极其庞大，为了追赶大佬，日常建设自己的素材库是一个很必要的工作。有价值的参考图片并非唾手可得，找起来还真得花一点功夫。比如我要以法国大革命时代的步枪作为参考的话（例如号称“18世纪的AKM”的Charleville 1777），会发现这些古董武器不像今天的自动步枪一样人尽皆知，难以找到非常细节的参考图片。通过搜索我发现，一些搞古董拍卖的网站无意中正好满足了这个需求，因为通常商家为了更好地介绍这些商品，给各种古董拍摄了大量多角度的高清图片。</p><p>例如下面这款“共和十二年（1804）线膛燧发枪”（French AN XII Flintlock Infantry Rifle），是拿破仑战争时期法军为数不多的一种自产线膛枪，据称总共也只生产了2200多支。线膛枪这点上英军强于法军，其生产了22000支贝克式线膛枪（Baker rifle）。但这些跟全球总共生产了七百多万把的查尔维尔1777（Charleville 1777）、四百多万把的棕贝斯（Brown Bess）相比简直小巫见大巫，网站显示它卖到了七千多美元的价格。（网址：<a href="https://www.joesalter.com/category/products/French-AN-XII-Flintlock-Infantry-Rifle-by-Versailles" target="_blank" rel="noopener">https://www.joesalter.com/category/products/French-AN-XII-Flintlock-Infantry-Rifle-by-Versailles</a> ）</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/a.png" title="a"><p>回到正题，该网站拍摄了共27张该步枪的高清照片，一个一个右键保存的话未免也太耗时间，况且很多商业网站经过特殊设计，只允许用户左键预览而无法直接右键保存。想要右键保存的话得通过打开新的图片页才能右键它，更有甚者连这一点都很难做到，得通过F12抓取网页元素之类的手段才能获得原始图片地址。</p><p>有人表示利用某些图片抓取插件可以解决该问题，是这样没错，但图片抓取插件并不能保证在所有情况下都生效（比如这个图钉网Pinterest，只能抓到低清预览版的图片），这里我就利用计算机自己的网页缓存这种简单原始的方法来实现批量下载这种不太好下载的图片，这种原始方法的泛用性应该是很高的。</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/b.png" title="b"><p>这个网站是可以打开高清图片页的，这里我们不直接右键它（或者可以先右键下载一个看看它的文件名），而是一次性将27张图片的高清页全部打开，一定要保证它们已经全部加载完毕，最好点一遍确认一下，并且再不要作出其他浏览器动作：</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/c.png" title="c"><p>加载好的图片必定已经被缓存到了本地的某处。我用的是Chrome浏览器，它的缓存地址为<br><code>C:\Users\你的用户名\AppData\Local\Google\Chrome\User Data\Default\Cache</code><br>如果是其他的浏览器的话，也可以找到一个类似这样的缓存目录，只是路径会有所不同。我们现在打开这个目录，将Cache里的的文件按照时间排序：</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/d.png" title="d"><p>可以看到，正好有27个大小约2-3Mb的文件是最新生成的，不用说这肯定是那27张图，我们将这27张图复制出来到一个空文件夹里。</p><p>这27个文件均没有文件名，但我们断定它必定是.jpg，此时进行批处理，先需要制作一个批处理文件：</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/e.png" title="e"><p>先新建一个txt文本文档，输入<code>ren *. *.jpg</code>,ren命令在批处理里是rename，可以对文件进行重命名，语法是:<br><code>ren 文件名A 文件名B</code><br>注意其中的两个空格。*星号在这里表示缺省内容，所以<code>ren *. *.jpg</code>即为将所有没有后缀的文件添加上jpg后缀。再举个例子例如我想把所有的.txt都变成.jpg，则为<code>ren *.txt *.jpg</code>。</p><p>保存关闭后将该txt文档的后缀改为.bat，变成了一个批处理文件。为了防止搞混可以对该批处理文件进行重命名，这里就命名为“修改所有无后缀文件为jpg”。</p><p>然后将这个.bat放到那27个文件的同目录文件夹里，双击运行.bat则可以完成批量重命名。</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/f.png" title="f"><img src="/2021/04/09/简单的手动批量下载网页图片的方法/g.png" title="g"><p>检查一下这些图片，具有很高的分辨率，和右键出来的一模一样。</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/h.png" title="h"><p>最后展示一下我收集的这种军事古董图片，咱虽然掏不起钱买古董，但通过空间想象（脑补）也一样可以得到一些粗浅的认识目的嘛。</p><img src="/2021/04/09/简单的手动批量下载网页图片的方法/i.png" title="i"><p>附上几个我发现的军事古董的网站：<br><a href="http://www.ima-usa.com" target="_blank" rel="noopener">www.ima-usa.com</a> 一个美国拍卖网，有很多二战时期的稀奇玩意；<br><a href="http://www.joesalter.com" target="_blank" rel="noopener">www.joesalter.com</a> 就是文中那个，也是个美国网站；<br><a href="http://www.australianarmsauctions.com" target="_blank" rel="noopener">www.australianarmsauctions.com</a> 一个澳大利亚的古董拍卖网，玩意众多，从簧轮枪到日本刀无所不有，但还是二战的枪械居多。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;利用浏览器缓存cache和批处理ren命令等方法实现手动批量下载难以下载的网页图片&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>配置了SSH后仍然需要输密码的情况</title>
