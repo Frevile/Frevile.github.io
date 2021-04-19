@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://frevile.github.io/"/>
-  <updated>2021-04-09T14:41:11.647Z</updated>
+  <updated>2021-04-19T14:07:02.759Z</updated>
   <id>https://frevile.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flash被各大浏览器彻底停用后的处理办法</title>
+    <link href="https://frevile.github.io/2021/04/19/Flash%E8%A2%AB%E5%90%84%E5%A4%A7%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BD%BB%E5%BA%95%E5%81%9C%E7%94%A8%E5%90%8E%E7%9A%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/"/>
+    <id>https://frevile.github.io/2021/04/19/Flash%E8%A2%AB%E5%90%84%E5%A4%A7%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BD%BB%E5%BA%95%E5%81%9C%E7%94%A8%E5%90%8E%E7%9A%84%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95/</id>
+    <published>2021-04-19T11:49:11.000Z</published>
+    <updated>2021-04-19T14:07:02.759Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote><p>采用离线破解版插件包+旧版便携版Chrome组装一个能运行Flash的便携浏览器,安全舒适无广告，能应对大多数需要Flash的情况。<a id="more"></a></p></blockquote><p>Adobe Flash在2020年底遭到了全网的停用，当时还只是弹一弹警告，还可以手动的方式启用flash插件。不过约在2021年1月的Chrome浏览器的一次更新后，设置里的flash插件项按钮完全消失，即使你电脑里仍存在以前装过的flash浏览器插件，也都统统不能再工作了。而且据观察不仅谷歌一家，IE、FireFox、Edge等著名浏览器也陆续跟进，flash彻底没了命。求助于Adobe官方只会通向那个“end-of-life”的页面：<a href="https://www.adobe.com/products/flashplayer/end-of-life.html" target="_blank" rel="noopener">https://www.adobe.com/products/flashplayer/end-of-life.html</a></p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/a.png" title="a"><center>按钮彻底消失了</center><p>但我们都清楚，即使Adobe给了三年缓冲时间，flash在国内这个环境下仍然不可能立马消失，最典型的就是各种官方机构那些老旧的页面，好多都属于那种平常没人在意，但又必须一直公示，保不准哪天要回来翻查的文件。没了flash听说当时火车票都不好买了，但火车票这玩意关注的人多，几天也就给修复了。而那些偏门别类的老旧页面可能有很多到今天都还是用的flash。</p><p>所以一个奇葩就应运而生了，重庆重橙网络跟Adobe达成合作，继续在中国运营flash。换句话说就是他们出了一个“中国特供版”的flash，不过但凡下载过重庆重橙的“中国特供版”flash的人都清楚，那玩意广告是真滴多！过两天你电脑就会出现一堆“屠龙宝刀点击就送”、“一刀999”。这正常人哪受得了呢，于是360出现了，带着他的360安全浏览器来收拾这个奇葩局面，只要你装了360浏览器，这问题也就差不多解决了。说白了，摆在普通用户面前的就是两条路：第一条是重橙的屎，看你愿不愿意吃；第二个就是霸道总裁360，看你愿不愿意投靠。</p><p>那咱就找一个又不吃屎又不靠爹的办法来解决这个问题。</p><p>思路是很明确：搞一个旧版稳定的Chrome浏览器，再想办法给它装上旧版的flash插件。</p><p>旧版的Chrome浏览器其实不是很好找，不过真要找还是找得到的。我这里从果核剥壳网站找到了一个Chrome_87.0.4280.141的便携版本，据说是最后一个支持Flash的Chrome版本，该便携版的好处就是可以解压就用，不想用了就删，比较方便，而且取消了它自动更新的功能，完全变成了一个稳定的本地工具。获取地址为：<a href="https://www.ghxi.com/chrome.html" target="_blank" rel="noopener">https://www.ghxi.com/chrome.html</a></p><p>当然这些资源链接或许在不久以后都会失效，这里重点只是给出方法。</p><p>旧版的flash插件必须用离线破解版的，因为正常情况下的flash浏览器插件包在安装时是要验证版本的，现在无论如何都会提示flash安装包不是最新版本，例如这个我很久以前收藏的Flash PPAPI 27.0的官方安装包，点获取最新版本则会被跳转到end-of-life的页面。</p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/b.png" title="b"><p>有必要说一下，Adobe Flash Player的浏览器插件有三种：</p><p>PPAPI：供Opera（15以上）、Chromium（开源谷歌）浏览器使用<br>NPAPI：适用于FireFox（火狐）、Safari（苹果）、Opera（欧朋，12.17版以下）<br>ActiveX：适用于Windows 7、Vista、XP系统IE内核浏览器、本地视频、游戏客户端</p><p>如果是Chrome浏览器的话则只需安装PPAPI的就行了。这里我通过毕方铺的百度网盘资源搜索工具收集了三种flash插件包的离线破解版，自打Pandownload事件以来毕方铺这样的衍生替代物还是很多的，总之这种资源在国内还是比较容易找到的。</p><p>经测试安装前要退出一切有关的杀毒软件，否则有可能报错为：尝试重新命名以下目标目录中的一个文件时发生错误: move file失败 代码: 5。</p><p>若仍无法正常安装，则可能是机器以前装过其他的flash浏览器插件，需要卸载原有的，正常情况下在启动新安装包时<br>会自动卸载原有的flash插件，但自动卸载仍有可能卸不干净。所以建议自动卸载后再前去 C:\Windows\SysWOW64 以及 C:\Windows\System32\Macromed\Flash 下手动检查是否清理完全（文件名和flash相关的文件）。</p><p>安装好以后启动旧版Chrome，在 设置——隐私设置和安全——网站设置 里找到Flash项，首先将默认的“禁用”改为“先询问”（这里没有允许按钮）。</p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/c.png" title="c"><p>在需要加载flash的网页上，点击地址栏左边挨着的“查看网站信息”（一般是一个锁头或者警告标志），将flash选择为允许，这里以4399为例。</p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/d.png" title="d"><p>此时会跳出一个框显示“Adobe Flash Player已因过期而被停用”，有两个按钮，手动选择“运行一次”。</p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/e.png" title="e"><p>flash应该就已经可以正常运作了。对于4399来说可能一打开就会提示flash过期的信息，此时再点“运行一次”是没有反应的，因为没点运行一次的时候它这个报错信息是优先判定的，网页仍然会认为你的浏览器不行。所以这里就需要一点手速，刷新后立即点“运行一次”，抢在它还没判定之前把允许命令给发出去，则可以正常运行这些flash小游戏。</p><img src="/2021/04/19/Flash被各大浏览器彻底停用后的处理办法/f.png" title="f"><p>为什么会有点繁琐，是因为Chrome在flash临近死亡的这些版本里已经开始做了一些微妙的改动，比如那个Flash项里面，是不能直接默认成允许的，只有“先询问”，而在下方的禁止/允许的站点里，是不能直接手动添加的，只能通过地址栏左边的“查看网站信息”手动允许过一次以后，这个站点才会出现在允许列表里。可以看出，Chrome早就开始给flash使绊子了，如果要避免这些问题，则需要flash危机之前的、更老旧的Chrome版本，这点有待进一步探索。不过浏览器版本搞得太老也不是什么好事，可能又会出其他的兼容性问题。</p><p>总的来说问题是解决了，而且这里的两个工具都是可以完全在离线的状态下安装的，也不受后续版本更新的影响了。可以说是通用性很高的办法。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;采用离线破解版插件包+旧版便携版Chrome组装一个能运行Flash的便携浏览器,安全舒适无广告，能应对大多数需要Flash的情况。&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>简单的手动批量下载网页图片的方法</title>
