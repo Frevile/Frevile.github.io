@@ -1,0 +1,90 @@
+<!DOCTYPE html><html class="han-init" lang="zh-Hant"><head><meta name="generator" content="Hexo 3.9.0"><meta name="author" content="Frevile"><meta name="description" itemprop="description" content="本文是对秃鹫工作室1994年关于Diablo的初版开发文档的翻译。"><link rel="alternative" href="/atom.xml" title="Aetherial★Clocktower" type="application/atom+xml"><link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>1994年Diablo初版开发文档</title><link rel="stylesheet" type="text/css" href="/font/fantasque_sans_mono/stylesheet.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/webicons/2.0.0/webicons.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/Han/3.3.0/han.min.css"><link rel="stylesheet" type="text/css" href="/styles/screen.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/highlight.js/9.9.0/styles/gruvbox-dark.min.css"></head><body><header><a href="/"><img class="logo" src="/images/avatar.gif" alt="Aetherial★Clocktower" title="Aetherial★Clocktower"></a><h1><a href="/" alt="Aetherial★Clocktower" title="Aetherial★Clocktower">Aetherial★Clocktower</a></h1><p>随意创作</p><nav><ul><li><a href="/" alt="首页" title="首页">首页</a></li><li><a href="/short" alt="心情" title="心情">心情</a></li><li><a href="/归档" alt="归档" title="归档">归档</a></li><li><a href="/links" alt="链接" title="链接">链接</a></li><li><a href="/about" alt="关于" title="关于">关于</a></li></ul><div class="ac-icon"><a target="_blank" href="/atom.xml">&#xf09c;</a><a target="_blank" href="https://t.me/Frevile" style="position: relative; right: -1px;">&#xeaf9;</a><a target="_blank" href="https://twitter.com/victor_frevile" style="position: relative; right: -4px;">&#xea3f;           </a></div><div class="music"><div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2063076946&auto=0&height=66"></iframe></div></div></nav><div class="space"></div></header><main><article class="full"><h1>1994年Diablo初版开发文档</h1><span class="post-meta">写于<time> 2021 年 05 月 21 日 10 时 29 分</time><br>更新于<time> 2021 年 05 月 21 日 11 时 19 分</time></span><blockquote>
+<p>本文是对秃鹫工作室1994年关于Diablo的初版开发文档的翻译。<a id="more"></a><br>原始文档可从该地址获得：<a href="https://www.graybeardgames.com/download/diablo_pitch.pdf" target="_blank" rel="noopener">https://www.graybeardgames.com/download/diablo_pitch.pdf</a></p>
+</blockquote>
+<hr>
+<h2 id="Diablo——游戏概念设计"><a href="#Diablo——游戏概念设计" class="headerlink" title=" Diablo——游戏概念设计"></a><center> Diablo——游戏概念设计</center></h2><center>by 秃鹫工作室（Condor, Inc.）</center>
+
+<p>&emsp;&emsp;本文是秃鹫工作室（Condor, Inc.）关于一个角色扮演游戏的提议，它可以在与PC兼容的计算机上游玩。《Diablo》将多种熟悉的奇幻元素囊括在其独特的结构中，旨在最大程度地提高可重玩性、可扩展性和全面性。《Diablo》填补了计算机游戏市场中被忽视的利基市场。如今的游戏大多采用多媒体视听盛宴制造出不必要的规模和复杂性，从而顶替了游戏玩法本身的地位。我们力求重振打击类游戏<sup><font color="blue">[1]</font></sup>的体感来让玩家感到满意。在实现正义的黑暗冒险旅途中，游戏的重点将放在探索、冲突和角色成长之上。我们希望既生产独立游戏，又生产其扩展盘。当游戏开发工作正式启动时，此初始文档将得到进一步扩展和修改。</p>
+<p>&nbsp; </p>
+<h2 id="游戏设计"><a href="#游戏设计" class="headerlink" title=" 游戏设计"></a><center> 游戏设计</center></h2><p>&nbsp; </p>
+<h3 id="概述"><a href="#概述" class="headerlink" title=" 概述:"></a><p align="left"> 概述:</p></h3><p>&emsp;&emsp;《Diablo》是一款角色扮演游戏（RPG），玩家在其中创建一个角色并引导他穿越地牢，以试图找到并消灭魔鬼“Diablo”。所有的单位动作均以四分之三侧视图的方式，在菱形形状的“方格”地板空间上进行（见图）。整个游戏都在回合制系统（Turn-based system）上进行。玩家使用鼠标将角色从一个空间移到另一个空间，探索走廊和房间并进行战斗。随着角色的探险不断深入地牢后，角色将面临敌对怪物和陷阱的挑战。地牢中可以获取并使用许多有益的武器和魔法物品，以助于完成整个任务。</p>
+<img src="/2021/05/21/1994年Diablo初版开发文档/a.png" title="a">
+<p>&emsp;&emsp;玩家可以在多个种族和职业中确定自己的角色。玩家的角色会随着击败怪物并深入到到更深层的地牢而得到成长。角色将获得新的技能，提高其格斗和法术能力，并用起更强大的武器装备。</p>
+<p>&emsp;&emsp;进入地牢的行动将被前往地牢上方小镇的旅程分开。在小镇上，一家商店将提供普通装备和维修工作，它还将从玩家那里购买其他装备。一个神殿将为受伤或生病的角色提供治疗服务。有关角色的训练以及其他可能的场所也会得到提供。</p>
+<p>&emsp;&emsp;《Diablo》的核心是随机创建的地牢。每次进入新的关卡都会生成一个随机的地牢关卡，它使用我们的动态随机关卡生成系统（Dynamic Random Level Generation, DRLG）。如房间、走廊、陷阱、宝藏、怪物和楼梯的位置将被随机放置，每次玩《Diablo》时都会有新的游戏体验。除了随机的大厅和房间外，还将预先设计一些更大的“固定件”区域，如复杂的迷宫或地下室，并在相应关卡上以原样完整地呈现。该系统有助于添加拼图和陷阱的内容，并可以更好地添加主题元素。更深层的关卡会包含越来越困难的生物和更加危险的因素。角色的冒险将以击败位于地牢深处的Diablo而告终。</p>
+<p>可扩展性和重玩价值是《Diablo》成功的关键。随机生成的地牢为探索以及独特的遭遇和冒险提供了新的机会；没有两次游戏会是完全一样的。购买初始包之后，可以再将新的魔法物品、生物、陷阱和完整场景添加到该基本游戏中，并直接整合到DRLG引擎里（参见本文档后面的扩展包讨论）。这种可扩展性进一步增加了持续的重玩价值。</p>
+<p>&emsp;&emsp;《Diablo》通过调制解调器或网络连接支持双人或多人游戏会话。玩家们可以在一个特殊的“竞技场”地牢中使他们的角色进行相互对抗。在双人游戏模式下，一个用户限定时间的限制会迫使玩家尽快行动。如果他们不指定一个行动，那么他们将会在该回合中会失去机会。只要所有玩家都提出了一个动作，游戏便会继续进行而不受时间限制。与朋友对战的功能将增加游戏扩展包的购买吸引力，因为玩家将会在与朋友的对战中寻求更大的优势。</p>
+<p>&nbsp;</p>
+<h3 id="剧情和设定"><a href="#剧情和设定" class="headerlink" title=" 剧情和设定:"></a><p align="left"> 剧情和设定:</p></h3><p>&emsp;&emsp;《Diablo》的世界观设定在一个奇幻的中世纪世界之上，在这里，使用剑与魔法的英雄将与黑暗势力斗争。当邪恶的突袭者杀死他的家人并摧毁他的房屋时，玩家角色的生活被彻底颠覆了，他剩下的只有复仇的欲望。角色将追溯入侵者的步伐，从而进入到地下的教堂墓穴和广阔的迷宫中。依靠着自己的勇气和初始的武器，他怀着怒火踏入了冒险。</p>
+<p>&emsp;&emsp;《Diablo》的世界将具有黑暗，邪恶的基调。初始关卡将设置在一个废弃的哥特式教堂中。随后是大理石陵墓和逐渐变暗的昏暗地窖和墓穴。在更深处，天然形成的洞穴结构将玩家引向那些超自然的恶魔厅堂，并最终通向Diablo所在的宏伟大殿。</p>
+<p>&emsp;&emsp;所遭遇到的生物也将遵循这个邪恶的主题。亡灵将以骷髅、僵尸、鬼魂等类似的主要形式展现出来。在更深层的关卡里，将出现一些次级恶魔和混沌诞生物。诸如蜘蛛和蛇之类的“自然”生物也将点缀其中以增加怪物的多样性。</p>
+<p>&emsp;&emsp;魔法物品也将反映出宗教/恶魔的主题。例如，一个“墨菲斯托的斗篷（Mephistopheles Cloak）”可能允许玩家对一些次级邪恶生物进行有限程度的控制，而“神圣权杖（Holy Mace）”可能只能用来砸碎那些令人讨厌的骷髅们。</p>
+<p>&emsp;&emsp;开放式结局将允许在未来的续篇中加入不同的主题，比如需要探索和征服的地精洞穴，或是一个活的真菌生物世界。玩家只需购买扩展光盘即可访问这些新世界。</p>
+<p>&nbsp;</p>
+<h3 id="游戏玩法"><a href="#游戏玩法" class="headerlink" title=" 游戏玩法:"></a><p align="left"> 游戏玩法:</p></h3><p>&emsp;&emsp;一个示例游戏会话的预演如下：</p>
+<p>&emsp;&emsp;当启动游戏后，一个开场电影动画会接续到主菜单屏幕。这里提供的三个选项是：“新角色”、“加载角色”和“选项”。“新角色”允许玩家创建一个新角色并从头开始。“加载角色”会在现有角色最后离开游戏的地方读取进度，或者允许玩家选择一个预先生成的角色来“快速启动”游戏。“选项”则可以访问声音和游戏设置等选项内容。</p>
+<p>&emsp;&emsp;新建角色的玩家首先会选择种族。我们计划提供5到6个种族（例如山民、森林居民等），他们各有其优缺点。选择种族之后，玩家将选择自己想要的职业；如选择斗士，盗贼或魔法师，或者也可能选择其中的子类别。尽管所有角色都将能够使用大多数武器并施放一些技能，但不同的职业将具有其特殊的优势。斗士将获得额外的攻击，盗贼的移动速度将更快，隐身能力也将增强，魔法师将拥有更多的法术并更以更强大的方式施放它们。在做出这些选择之后，计算机将为角色在力量、魔法天赋、敏捷和生命力等类别中给出基本统计信息。然后，将为玩家提供一些可以自由决定的点数，以便在他认为合适的情况下进行分配。魔法师角色将从大约四个“魔法门派”中做出选择，不过有一些魔法是通用的，这些技能适用于所有角色。角色将拥有一些初始装备和金币，它们被放置在游戏刚开始的城镇里。</p>
+<p>&emsp;&emsp;如果玩家改为从主菜单中选择“加载角色”，然后选择了一个预先生成的角色，则前面的所有的内容都将被跳过，这个“快速开始”角色将直接从城镇开始，并已经拥有一些装备。</p>
+<p>&emsp;&emsp;在我们的等轴图中展示了该城镇的设计，它包含一条主要道路，一个城镇广场和约十几个建筑物。玩家可以通过将鼠标控制的光标放在他想走到的“方格”上并单击鼠标左键来完成角色的移动。左键单击一个方格将使角色以尽可能短的路径移动到该选定的方格里。左键单击某个物品或生物将使角色移动到它的旁边。如果角色已经与某物品或生物相邻，则单击鼠标左键可使角色以适当的方式进行交互（与店主交易，攻击生物，打开箱子等）。右键单击会将已就绪的技能施放到指定的位置。箭头将独立于角色在地图上滚动。在镇上移动时，角色可以访问各种商店以购买更多的装备，也可以进入一座可以接受治疗的神殿，以及可以用来休息和存储多余物品或金币的家。</p>
+<img src="/2021/05/21/1994年Diablo初版开发文档/b.png" title="b">
+<p>&emsp;&emsp;当玩家将角色引导至道路上并进入被遗弃的神殿（地牢的第一层）时，乐趣就真正开始了。这时，计算机将自动生成第一层关卡的布局图。</p>
+<p>&emsp;&emsp;玩家可以看到该角色尽可能看到的地牢，这取决于灯光、视线和魔法因素。没有被光源照亮的区域会变成黑色。魔法制造的“黑暗”也会阻挡光源。 一种红外夜视术可以检测出黑暗区域内的热源（在远处的生物显示出红色形状）。随着角色四处走动，地牢的新部分被揭示了出来。如果玩家点击一个遥远的方格，并且在路线中间看到一个生物，角色将会停下来等待新的命令。</p>
+<p>&emsp;&emsp;游戏按照回合制的方式轮流进行；玩家移动，然后对手移动。每个角色和怪物都拥有一定数量的行动点数，这些行动点数将确定在给定回合中可能执行的动作。例如：一个斗士转过一个弯，突然看到了一个八格外的骷髅。玩家在前面的两个方格上单击鼠标左键以缩小距离。当斗士向前移动两个方格时，骷髅也会向前移动两个方格，并且一个新的骷髅进入了视野范围。玩家变得更加小心地移动，向前点击了一个方格。第一个骷髅也移动一个方格，而第二个骷髅则发射出一支箭，击中了斗士。此时玩家再次向前移动一个方格。第一个骷髅移动到斗士正对面的方格上，第二个骷髅又射出了一支箭，并且未命中。现在，斗士和第一个骷髅互相交换一次攻击，而那个弓箭手骷髅又射出了一支箭。在玩家确定斗士无法继续承受伤害后，玩家向后点击了六个空格以试图撤退。第一个骷髅在一个空格之后紧随其后。而那个弓箭手骷髅每回合都会射击，直到斗士躲到拐角处附近。</p>
+<p>&emsp;&emsp;假设斗士成功逃脱了，他将继续探索地牢并最终到达楼梯处以进入下一层，此时将生成一个新的关卡层。而如果那些弓箭中的某一支将斗士击杀，则该角色将从硬盘驱动器中完全删除，玩家必须从头开始。</p>
+<p>&nbsp; </p>
+<h2 id="市场营销"><a href="#市场营销" class="headerlink" title=" 市场营销"></a><center> 市场营销</center></h2><p>&nbsp; </p>
+<p>&emsp;&emsp;虽然《Diablo》与该类型的其他游戏都有着熟悉的角色扮演元素，但其独特的结构允许采用不同的市场营销策略，这可能会发展为一个持续的长期销售。</p>
+<p>&emsp;&emsp;这里的确有两个产品：独立的《Diablo》本体，及其扩展包。这些包将由一个光盘和一个小包装中的信息卡片组成。该光盘将包含可直接安装到《Diablo》游戏本体中的新元素。这些元素将包括：新的魔法物品，新的生物，新的陷阱和新的关卡图形。扩展盘都将是不同的（或可能是16或32个组合），并且将包含大约16个不同的新元素。一个光盘样例可能包含：一把稀有的剑，三个罕见的魔法物品，八个普通物品，两个生物，一种陷阱和一个新的走廊类型。<br>一个玩家可能会购买一两个新的扩展盘，然后回家将新数据安装到他的游戏中。此时生成新关卡时，新元素将被整合到随机组合中。或许应该直接将一个好东西放入玩家角色的物品栏里，以立刻获得满足感。</p>
+<p>&emsp;&emsp;我们认为这些扩展盘的价格应定在4.95美元左右，并希望将它们作为商店收银台附近的销售点物品出售。玩家会在事后购买这些扩展包，或者会尝试将它们全部收集起来。其中，一类代表扩展包中稀有物品的“收藏者”型的卡片可以强化这种可收藏性的体验。</p>
+<p>&emsp;&emsp;如果《Diablo》和扩展包被证明是成功的，则可以发布其他扩展包系列。 每个系列都会有一个主题，例如《黑暗梦魇（Dark Nightmares）》或《神圣复仇者（Holy Avengers）》。</p>
+<p>&emsp;&emsp;这种营销策略提供了很多好处。扩展包将增加重玩性并延长产品的使用寿命，同时以最少的投资提供额外的持续收益。销售点的显示器将用于广告，将人们引向货架上的《Diablo》，而其收藏性将进一步提高销售额。</p>
+<p>&emsp;&emsp;《Diablo》及其扩展包具有非传统的性质，这在计算机游戏界中将是独一无二的，但这并不表示没有先例和不存在现有的相似类型。《万智牌<sup><font color="blue">[2]</font></sup>》为《Diablo》的营销策略提供了一些启发。这种扩展包结构将用于我们的模型之上，其具有的可收藏性质也会迁移过来。《万智牌》游戏的巨大成功证明了玩家愿意继续进行少量额外购买来振兴他们已拥有的游戏的意愿。在计算机游戏界中，《Diablo》及其扩展包将没有真正的竞争对手。《万智牌》在电子精品<sup><font color="blue">[3]</font></sup>商店的收银机上出售；而《Diablo》作为一款电脑游戏将会非常适合这种模式。</p>
+<p>&emsp;&emsp;在计算机商店的收银处出售的共享软件和演示案例中也可以找到一些先例。如一些计算机角色扮演游戏的语音包、内容扩展包以及续集作品的成功，进一步提供了《Diablo》的扩展包可能会成功的证据。</p>
+<p>&nbsp; </p>
+<h2 id="开发"><a href="#开发" class="headerlink" title=" 开发"></a><center> 开发</center></h2><p>&nbsp; </p>
+<p>&emsp;&emsp;Condor计划花一年的时间开发《Diablo》。开发人员将包括：一名设计师；一名首席程序员和两名初级程序员；两名美术指导/美工人员，一名插画师/雕塑家和三位像素美工/插画家；以及一位音乐/音效人员。</p>
+<p>&emsp;&emsp;《Diablo》将是一个艺术密集型的产品。我们打算让游戏在Super VGA<sup><font color="blue">[4]</font></sup>模式（640×480像素）下运行。四分之三侧视视角需要八个运动方向，其中三个方向有时可以翻转。每个怪物都会有多个死亡动作图形，并且需要至少50帧的动画。我们设想从大约16种怪物开始设计。玩家的角色则需要更多帧数来涵盖不同类型的攻击、施法动作、开箱动作等。不同的武器、盔甲和衣服类型将反映在角色的精灵<sup><font color="blue">[5]</font></sup>中。将有5到6个初始关卡类型以及一个地上的城镇。另外的艺术要求包括过场动画、标题屏幕、角色创建界面和物品栏界面。</p>
+<p>&emsp;&emsp;编程部门的首要任务是开发一个简洁、直观的界面。此后，将及时实施构建整个外壳结构，动态随机关卡生成器、及一个声音驱动程序，以允许进行至少4个月的错误调试，并且最重要的是保持游戏的平衡性。</p>
+<p>&emsp;&emsp;音乐将包括一个开场主题和伴随游戏的氛围音乐。音效将涵盖战斗、技能施放、行走等类似的情况。</p>
+<p>初步计划的开发进度如下：</p>
+<img src="/2021/05/21/1994年Diablo初版开发文档/c.png" title="c">
+<p>Copyright © 1994. Condor, Inc.</p>
+<hr>
+<h3 id="译注："><a href="#译注：" class="headerlink" title=" 译注："></a><p align="left"> 译注：</p></h3><p><font color="blue">[1]</font>  原文为Hack and slash，中文市面上并没有一个通行的翻译，它的字面意思就是砍杀，主要用来描述那种注重冷兵器打击感的游戏，故将其试译为打击类游戏（或者砍杀类游戏）。</p>
+<p><font color="blue">[2]</font>  万智牌（Magic: the Gathering）是1993年由美国数学教授理查·加菲（Richard Garfield）设计，并经由威世智（Wizards Of The Coast）公司发行的世界上第一款集换式卡牌游戏（TCG）。</p>
+<p><font color="blue">[3]</font>  电子精品，即EB Games（以前称为Electronics Boutique或EB World）是一家1977年由詹姆斯·金（James Kim）在美国创立的计算机和视频游戏零售商公司。</p>
+<p><font color="blue">[4]</font>  Super VGA（SVGA）是一个涵盖了增强型IBM VGA规范的各种计算机显示标准的广义用语，它并不是一个正式标准，当用作VGA和XGA常用的分辨率的简写时，SVGA通常指的是800×600的分辨率。</p>
+<p><font color="blue">[5]</font>  “精灵（Sprite）”是一个在早期2D游戏开发中广泛使用的概念，可以理解为游戏里的某一单元对象存在一系列可变化的图片组，从而表现出不同的动画。它通常被用于设计那些需要重点精确描绘的角色或者物体，如RPG游戏里的主角角色等。通过“精灵”可以节约早期计算机的图像处理资源。</p>
+<hr><section class="comment"><div id="disqus_thread"></div></section><script>var DISQUS_PAGE_URL = "https://frevile.github.io/2021/05/21/1994年Diablo初版开发文档/";</script><script>var DISQUS_IDENTIFIER = "2021/05/21/1994年Diablo初版开发文档/";</script><script>var DISQUS_SHORT_NAME = "YOUR_DUOSHUO_ID"</script><script>var disqus_config = function() {
+  this.page.url = DISQUS_PAGE_URL;
+  this.page.identifier = DISQUS_IDENTIFIER;
+};
+
+(function() {
+  var d = document, s = d.createElement("script");
+  s.src = "https://" + DISQUS_SHORT_NAME + ".disqus.com/embed.js";
+  s.setAttribute("data-timestamp", +new Date());
+  (d.head || d.body).appendChild(s);
+})();</script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer><section class="copyright">&copy; 2016 - 2021<a href="/">Frevile</a></section><section class="intro">由<a href="https://hexo.io/">Hexo</a>驱动&middot;挂载<a href="https://github.com/xadillax/hexo-xnew">X'new</a>主题</section></footer></article></main><script src="//cdn.bootcss.com/Han/3.3.0/han.min.js"></script><script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><script src="//cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script><script src="/scripts/highlight.pack.js"></script><script>$(function() {
+    $("header").backstretch("/images/header.jpeg");
+
+    $("figure.highlight").each(function(i, block) {
+        $(block).removeClass("highlight");
+        $("<pre><code class='__tobehl " + ($(block).attr("class") === "plain" ? "" : ("lang-" + $(block).attr("class"))) + "'></code></pre>").insertAfter($(block));
+        $(block).next().find("code").text((block.innerText || block.textContent));
+        $(block).remove();
+    });
+    $(".__tobehl").each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
+    $("article.full img").each(function() {
+        $(this).parent().css("text-align", "center");
+    });
+
+    if($(".article-toc").children().length < 2) {
+        $(".article-toc").css("display", "none");
+    }
+});</script></body></html>
